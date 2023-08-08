@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DictionaryApp = () => {
+function DictionaryApp  () {
   return (
     <div>DictionaryApp</div>
   )
