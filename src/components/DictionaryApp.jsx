@@ -40,8 +40,8 @@ const DictionaryApp = () => {
     delayedFetchDictionaryData();
   }, [word]);
   return (
-    <div>
-      <form
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <form 
         onSubmit={(e) => {
           e.preventDefault();
           fetchDictionaryData(); // Call the function when the form is submitted
@@ -53,7 +53,7 @@ const DictionaryApp = () => {
           onChange={(e) => setWord(e.target.value)}
           placeholder="Enter a word"
         />
-        <button type="submit">Search</button>
+        <button style={{background: "red"}} type="submit">Search</button>
       </form>
       {data && (
         <div>
