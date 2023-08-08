@@ -5,9 +5,19 @@ const Game = () => {
   const gameUrl = 'https://www.dictionary.com/e/crossword/';
 
   return (
-    <a href={gameUrl} target="_blank" rel="noopener noreferrer">
-      <img src={gameImageUrl} alt="Game" style={{ width: "200px", height: "200px", marginTop: "20px" }} />
-    </a>
+    <div>
+      <a href={gameUrl} target="_blank" rel="noopener noreferrer">
+        <h2>Crossword</h2>
+        <img src={gameImageUrl} alt="Game" style={{ width: "200px", height: "200px", marginTop: "20px" }} />
+      </a>
+<h3> Get that job </h3>     
+<a href="https://www.thesaurus.com/e/writing/how-do-i-write-a-resume/" target="_blank" rel="noopener noreferrer">
+        Your Guide To Writing A Strong Resume
+      </a>
+
+
+      
+    </div>
   );
 };
 

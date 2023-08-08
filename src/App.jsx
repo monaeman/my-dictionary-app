@@ -3,7 +3,7 @@ import debounce from 'lodash/debounce';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
-import Game from './Game'; // Import the Game component
+import Game from './Game'; 
 
 function App() {
   const [word, setWord] = useState('');
@@ -47,8 +47,8 @@ function App() {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <div style={{ display: "flex", alignItems: "center" }}>
-        <FontAwesomeIcon icon={faBook} style={{ fontSize: "24px", marginRight: "8px" }} />
-        <h1 style={{ color: "blue", textAlign: "center" }}>Dictionary</h1>
+        <FontAwesomeIcon icon={faBook} style={{ fontSize: "40px", marginRight: "8px" }} />
+        <h1 style={{ color: "blue", textAlign: "center" , fontSize: "60px"}}>Dictionary</h1>
       </div>
       <form 
         onSubmit={(e) => {
@@ -74,7 +74,7 @@ function App() {
           </ul>
         </div>
       )}
-      <Game /> {/* Render the Game component */}
+      <Game /> 
     </div>
   );
 }
