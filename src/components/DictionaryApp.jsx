@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import debounce from 'lodash/debounce';
+import App from '../App';
 
 const DictionaryApp = () => {
   const [word, setWord] = useState('');
@@ -39,6 +40,7 @@ const DictionaryApp = () => {
   useEffect(() => {
     delayedFetchDictionaryData();
   }, [word]);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <form 
@@ -53,7 +55,7 @@ const DictionaryApp = () => {
           onChange={(e) => setWord(e.target.value)}
           placeholder="Enter a word"
         />
-        <button style={{background: "red"}} type="submit">Search</button>
+        <button style={{ background: "red" }} type="submit">Search</button>
       </form>
       {data && (
         <div>
@@ -65,6 +67,7 @@ const DictionaryApp = () => {
           </ul>
         </div>
       )}
+      
     </div>
   );
 };
