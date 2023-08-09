@@ -1,82 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import debounce from 'lodash/debounce';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook } from '@fortawesome/free-solid-svg-icons';
-import Game from './Game'; 
+import React, { useEffect, useState } from "react";
+//import debounce from 'lodash/debounce';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import "./styles.css";
 
-function App() {
-  const [word, setWord] = useState('');
-  const [data, setData] = useState(null);
+//const api = "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=run";
 
-  const fetchDictionaryData = async () => {
-    if (word.trim() === '') {
-      setData(null);
-      return;
-    }
+export default function App() {
+  const [keyWord, setKeyWord] = useState("");
+  const [result, setResult] = useState([]);
 
-    const url = `https://lexicala1.p.rapidapi.com/search-entries?text=${word}`;
+  async function handleSearch(e) {
+    e.preventDefault();
+
+    const url = `https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${keyWord}`;
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'X-RapidAPI-Key': 'acd083fd78msh0520d5687028325p1c832fjsn70f07468e234',
+        "X-RapidAPI-Key": "acd083fd78msh0520d5687028325p1c832fjsn70f07468e234",
+        "X-RapidAPI-Host": "mashape-community-urban-dictionary.p.rapidapi.com",
       },
     };
 
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-
-      // Check if the data structure has the expected properties
-      if (result.entries && result.entries[0] && result.entries[0].senses) {
-        setData(result);
-      } else {
-        setData(null);
-      }
+      console.log(result);
     } catch (error) {
       console.error(error);
     }
-  };
+  }
 
-  const delayedFetchDictionaryData = debounce(fetchDictionaryData, 1000);
-
-  useEffect(() => {
-    delayedFetchDictionaryData();
-  }, [word]);
+  function handleClear() {
+    setKeyWord("");
+    setResult();
+  }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <div style={{ display: "flex", alignItems: "center" }}>
-        <FontAwesomeIcon icon={faBook} style={{ fontSize: "40px", marginRight: "8px" }} />
-        <h1 style={{ color: "blue", textAlign: "center" , fontSize: "60px"}}>Dictionary</h1>
-      </div>
-      <form 
-        onSubmit={(e) => {
-          e.preventDefault();
-          fetchDictionaryData();
-        }}
-      >
-        <input
-          type="text"
-          value={word}
-          onChange={(e) => setWord(e.target.value)}
-          placeholder="Enter a word"
+        <FontAwesomeIcon
+          icon={faBook}
+          style={{ fontSize: "40px", marginRight: "8px" }}
         />
-        <button style={{ background: "red" }} type="submit">Search</button>
-      </form>
-      {data && (
-        <div>
-          <h2>Definitions:</h2>
-          <ul>
-            {data.entries[0].senses.map((sense, index) => (
-              <li key={index}>{sense.definition.text}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <Game /> 
+        <h1 style={{ color: "blue", textAlign: "center", fontSize: "60px" }}>
+          Dictionary
+        </h1>
+      </div>
+      <div className="App">
+        <input value={keyWord} onChange={(e) => setKeyWord(e.target.value)} />
+        <button className="button" type="button" onClick={handleSearch}>
+          Search
+        </button>
+        <button
+          disabled={!result}
+          className="button"
+          type="button"
+          onClick={handleClear}
+        >
+          Clear
+        </button>
+      </div>
     </div>
   );
 }
-
-export default App;

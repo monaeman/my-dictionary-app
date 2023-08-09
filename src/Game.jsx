@@ -7,11 +7,11 @@ const Game = () => {
   const containerStyle = {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center', // Aligns content to the left
+    alignItems: 'center', 
   };
 
   const gameStyle = {
-    marginRight: '20px', // Adds spacing between game and link
+    marginRight: '20px', 
   };
 
   return (
