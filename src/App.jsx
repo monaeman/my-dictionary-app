@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 //import debounce from 'lodash/debounce';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 import "./styles.css";
-
-//const api = "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=run";
+import ListDetails from "./components/ListDetails";
 
 export default function App() {
   const [keyWord, setKeyWord] = useState("");
@@ -13,22 +12,15 @@ export default function App() {
 
   async function handleSearch(e) {
     e.preventDefault();
-
-    const url = `https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${keyWord}`;
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "acd083fd78msh0520d5687028325p1c832fjsn70f07468e234",
-        "X-RapidAPI-Host": "mashape-community-urban-dictionary.p.rapidapi.com",
-      },
-    };
+    const apiUrl = `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/umpire?key=fa217747-adc8-4750-8d0c-044eac3c1087`;
 
     try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      console.log(result);
+      const response = await fetch(apiUrl);
+
+      const resultData = await response.json();
+      console.log(resultData);
     } catch (error) {
-      console.error(error);
+      console.log("Error:", error);
     }
   }
 
@@ -39,11 +31,7 @@ export default function App() {
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
         <FontAwesomeIcon
@@ -55,19 +43,23 @@ export default function App() {
         </h1>
       </div>
       <div className="App">
-        <input value={keyWord} onChange={(e) => setKeyWord(e.target.value)} />
-        <button className="button" type="button" onClick={handleSearch}>
-          Search
-        </button>
-        <button
-          disabled={!result}
-          className="button"
-          type="button"
-          onClick={handleClear}
-        >
-          Clear
-        </button>
+        <form onSubmit={handleSearch}>
+          <input value={keyWord} onChange={(e) => setKeyWord(e.target.value)} />
+          <button className="button" type="button" onClick={handleSearch}>
+            Search
+          </button>
+          <button
+            disabled={!result}
+            className="button"
+            type="button"
+            onClick={handleClear}
+          >
+            Clear
+          </button>
+        </form>
       </div>
+      {result && <ListDetails result={result} />}
     </div>
   );
 }
+<ListDetails />;

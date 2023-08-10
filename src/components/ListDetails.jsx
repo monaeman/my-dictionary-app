@@ -1,37 +1,30 @@
+import React from "react";
+import App from "../App";
+
 const ListDetails = ({ result }) => {
-  // Check if result is not undefined before destructuring
+  // Check if 'result' is defined
   if (!result) {
-    return null; // or display a loading message
+    return <div>No data available</div>;
   }
 
-  //const { word, meanings } = result;
+  // Destructure properties from the 'result' object
+  const { word, definition, example } = result;
 
   return (
     <div className="card mt-20">
       <div className="p-20">
         <h3>Word: {word}</h3>
-
         <div>
-          <h3>Meaning:</h3>
-          <p>{meanings[0].definitions[0].definition}</p>
+          <h3>Definition:</h3>
+          <p>{definition}</p>
         </div>
-
         <div>
           <h3>Example:</h3>
-          <p>{meanings[0].definitions[0].example}</p>
-        </div>
-
-        <div>
-          <h3>Synonyms:</h3>
-          <ul>
-            {meanings[0].synonyms.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
+          <p>{example}</p>
         </div>
       </div>
     </div>
   );
 };
-
+<App />;
 export default ListDetails;
