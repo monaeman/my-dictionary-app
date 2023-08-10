@@ -8,25 +8,30 @@ import ListDetails from "./components/ListDetails";
 
 export default function App() {
   const [keyWord, setKeyWord] = useState("");
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState({});
 
   async function handleSearch(e) {
     e.preventDefault();
-    const apiUrl = `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/umpire?key=fa217747-adc8-4750-8d0c-044eac3c1087`;
+    const url = `https://dictionary-by-api-ninjas.p.rapidapi.com/v1/dictionary?word=${keyWord}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "acd083fd78msh0520d5687028325p1c832fjsn70f07468e234",
+        "X-RapidAPI-Host": "dictionary-by-api-ninjas.p.rapidapi.com",
+      },
+    };
 
     try {
-      const response = await fetch(apiUrl);
-
-      const resultData = await response.json();
-      console.log(resultData);
+      const response = await fetch(url, options);
+      const result = await response.json();
+      console.log(result);
     } catch (error) {
-      console.log("Error:", error);
+      console.error(error);
     }
   }
-
   function handleClear() {
     setKeyWord("");
-    setResult();
+    setResult({});
   }
 
   return (
