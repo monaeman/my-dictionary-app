@@ -19,9 +19,13 @@ How to use the App
 4-Click the " Clear" button to reset the search results and input field.
 --
 Technologies Used
-\*React : A java script library for building user interfaces.
+React : A java script library for building user interfaces.
 
 - FontAwesome : Apopular icon library for adding icons to the UI
 - Fetch API: used to make HTTP requests to the external API
 
 ---
+
+API Usage
+The app uses this link for the API Key https://rapidapi.com/apininjas/api/dictionary-by-api-ninjas/
+--
