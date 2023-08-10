@@ -64,3 +64,10 @@ input {
   border-color: #000000;
   transform: scale(0.96);
 }
+
+.button:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}
