@@ -20,3 +20,10 @@
 .p-20 {
   padding: 20px;
 }
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  outline: none;
+}
