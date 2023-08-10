@@ -25,6 +25,7 @@ export default function App() {
       const response = await fetch(url, options);
       const result = await response.json();
       console.log(result);
+      setResult(result);
     } catch (error) {
       console.error(error);
     }
@@ -63,7 +64,7 @@ export default function App() {
           </button>
         </form>
       </div>
-      {result && <ListDetails result={result} />}
+      <ListDetails result={result} />
     </div>
   );
 }
