@@ -29,3 +29,15 @@ React : A java script library for building user interfaces.
 API Usage
 The app uses this link for the API Key https://rapidapi.com/apininjas/api/dictionary-by-api-ninjas/
 --
+
+function :
+
+The handleSearch function is an asynchronous function that is triggered when the search button is clicked. It first prevents the default form submission . If the keyWord is empty after trimming whitespace, an error is logged, and the function returns early.
+
+Otherwise, it constructs the URL for the API request with the provided keyword. It then uses the fetch function to send a GET request to the API using the specified options. If the response is successful, the result is set in the state using setResult. If there's an error, it's logged to the console.
+
+The useEffect hook is used to log the result to the console when the component mounts. The empty dependency array [] ensures that this effect only runs once after the initial render.
+
+The handleClear function is responsible for clearing the input keyword and resetting the result to an empty object.
+
+The ListDetails component displays the result.
