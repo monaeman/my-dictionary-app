@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //import debounce from 'lodash/debounce';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,6 +30,11 @@ export default function App() {
       console.error(error);
     }
   }
+
+  useEffect((e) => {
+    handleSearch(e);
+  }, []);
+
   function handleClear() {
     setKeyWord("");
     setResult({});
@@ -68,4 +73,3 @@ export default function App() {
     </div>
   );
 }
-<ListDetails />;

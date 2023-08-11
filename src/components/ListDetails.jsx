@@ -9,7 +9,7 @@ function ListDetails({ result }) {
           <h3>Word: {result.word}</h3>
           <div>
             <h3>Definition:</h3>
-            <p>{result.definition}</p>
+            <p>{result.definition} </p>
           </div>
         </div>
       </div>
