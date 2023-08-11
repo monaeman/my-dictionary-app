@@ -10,8 +10,12 @@ export default function App() {
   const [keyWord, setKeyWord] = useState("");
   const [result, setResult] = useState({});
 
-  async function handleSearch() {
-    //e.preventDefault();
+  async function handleSearch(e) {
+    e.preventDefault();
+    if (!keyWord.trim()) {
+      console.error("Keyword is empty");
+      return;
+    }
     const url = `https://dictionary-by-api-ninjas.p.rapidapi.com/v1/dictionary?word=${keyWord}`;
     const options = {
       method: "GET",
