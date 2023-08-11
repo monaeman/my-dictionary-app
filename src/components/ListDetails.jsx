@@ -2,7 +2,7 @@ import React from "react";
 
 function ListDetails({ result }) {
   const loaded = () => {
-    console.log(result);
+    //console.log(result);
     return (
       <div className="card mt-20">
         <div className="p-20">

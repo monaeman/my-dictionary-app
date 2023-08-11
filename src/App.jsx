@@ -10,8 +10,8 @@ export default function App() {
   const [keyWord, setKeyWord] = useState("");
   const [result, setResult] = useState({});
 
-  async function handleSearch(e) {
-    e.preventDefault();
+  async function handleSearch() {
+    //e.preventDefault();
     const url = `https://dictionary-by-api-ninjas.p.rapidapi.com/v1/dictionary?word=${keyWord}`;
     const options = {
       method: "GET",
@@ -24,15 +24,15 @@ export default function App() {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result);
+      //console.log(result);
       setResult(result);
     } catch (error) {
       console.error(error);
     }
   }
 
-  useEffect((e) => {
-    handleSearch(e);
+  useEffect(() => {
+    console.log(result);
   }, []);
 
   function handleClear() {
@@ -60,7 +60,7 @@ export default function App() {
             Search
           </button>
           <button
-            disabled={!result}
+            disabled={!result.definition}
             className="button"
             type="button"
             onClick={handleClear}
