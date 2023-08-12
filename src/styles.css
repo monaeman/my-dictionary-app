@@ -2,11 +2,16 @@
 .App {
   font-family: "Lato", sans-serif;
   padding: 20px;
+background-color: rgb(240, 203, 239);
+width : 100%;
+text-align: center;
+
 }
 
 .flex {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+ 
 }
 
 .pl-20 {
@@ -19,7 +24,9 @@
 
 .p-20 {
   padding: 20px;
+ 
 }
+
 input {
   border-top-style: hidden;
   border-right-style: hidden;
@@ -73,6 +80,7 @@ input {
 }
 
 .card {
+  
   color: "white";
   border-radius: 30px;
   background: #83a4d4; /* fallback for old browsers */
@@ -86,4 +94,9 @@ input {
     #b6fbff,
     #83a4d4
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  .nav-link:not(:last-child) {
+    margin-right: 30px;
+  }
+
 }
