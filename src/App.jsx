@@ -104,49 +104,49 @@ export default function App() {
       <nav
         style={{
           display: "flex",
-          justifyContent: "space-around",
-          // marginTop: "20px",
-          backgroundColor: "rgb(240, 203, 239)", // Set the background color here
-          padding: "10px 100%",
+          justifyContent: "center",
+          marginTop: "20px",
+          backgroundColor: "#f0f0f0", // Adding a background color
+          padding: "10px 0", // Adding padding for spacing
         }}
       >
         <a
           href="#games"
           className="nav-link"
-          style={{ fontSize: "20px", marginRight: "70px" }}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Games
         </a>
+        <span style={{ margin: "0 10px" }}>|</span> {/* Adding separators */}
         <a
-          href="#stories"
+          href="https://www.dictionary.com/e/c/language-stories/"
           className="nav-link"
-          style={{ fontSize: "20px", marginRight: "70px" }}
+          target="_blank" // Opens the link in a new tab
+          rel="noopener noreferrer"
         >
-          Stories
+          {" "}
+          Language Stories
         </a>
+        <span style={{ margin: "0 10px" }}>|</span>
         <a
-          href="#memes"
+          href="https://www.thesaurus.com/e/grammar/?adobe_mc=MCMID%3D04420543827964857500849917897764341718%7CMCORGID%3DAA9D3B6A630E2C2A0A495C40%2540AdobeOrg%7CTS%3D1691872100"
           className="nav-link"
-          style={{ fontSize: "20px", marginRight: "70px" }}
+          target="_blank" // Opens the link in a new tab
+          rel="noopener noreferrer"
         >
-          Memes
+          Grammer Essentials
         </a>
+        <span style={{ margin: "0 10px" }}>|</span>
         <a
-          href="#grammar"
+          href="https://www.thesaurus.com/e/writing/?adobe_mc=MCMID%3D04420543827964857500849917897764341718%7CMCORGID%3DAA9D3B6A630E2C2A0A495C40%2540AdobeOrg%7CTS%3D1691871704"
           className="nav-link"
-          style={{ fontSize: "20px", marginRight: "70px" }}
+          target="_blank" // Opens the link in a new tab
+          rel="noopener noreferrer" // Recommended for security
         >
-          Grammer
-        </a>
-        <a
-          href="#writing-tips"
-          className="nav-link"
-          style={{ fontSize: "20px", marginRight: "70px" }}
-        >
-          Writing
+          Writing Tips
         </a>
       </nav>
-
       <ListDetails result={result} />
       <Game />
     </div>
