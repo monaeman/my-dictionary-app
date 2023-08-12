@@ -111,15 +111,6 @@ export default function App() {
         }}
       >
         <a
-          href="#games"
-          className="nav-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Games
-        </a>
-        <span style={{ margin: "0 10px" }}>|</span> {/* Adding separators */}
-        <a
           href="https://www.dictionary.com/e/c/language-stories/"
           className="nav-link"
           target="_blank" // Opens the link in a new tab
