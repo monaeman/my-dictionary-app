@@ -108,6 +108,7 @@ export default function App() {
           marginTop: "20px",
           backgroundColor: "#f0f0f0", // Adding a background color
           padding: "10px 0", // Adding padding for spacing
+          fontSize: "18px",
         }}
       >
         <a

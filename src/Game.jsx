@@ -32,16 +32,6 @@ const Game = () => {
 
   return (
     <div>
-      <h2 style={{ color: "blue", textAlign: "left", fontSize: "20px" }}>
-        GET THAT JOB ! `
-        <a
-          href="https://www.thesaurus.com/e/writing/how-do-i-write-a-resume/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Your Guide To Writing A Strong Resume
-        </a>
-      </h2>
       <div style={containerStyle}>
         <div style={gameStyle}>
           <a href={gameUrl} target="_blank" rel="noopener noreferrer">
@@ -84,6 +74,22 @@ const Game = () => {
           </a>
         </div>
       </div>
+      <h2
+        style={{
+          color: "blue",
+          textAlign: "center",
+          fontSize: "30px",
+        }}
+      >
+        GET THAT JOB ! `
+        <a
+          href="https://www.thesaurus.com/e/writing/how-do-i-write-a-resume/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Your Guide To Writing A Strong Resume
+        </a>
+      </h2>
     </div>
   );
 };
