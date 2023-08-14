@@ -41,3 +41,5 @@ The useEffect hook is used to log the result to the console when the component m
 The handleClear function is responsible for clearing the input keyword and resetting the result to an empty object.
 
 The ListDetails component displays the result.
+
+Netlify link : https://effortless-figolla-195435.netlify.app/
